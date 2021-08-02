@@ -9,10 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity  {
     RecyclerAdapter adapter;
     RecyclerView rvTask;
     Button btnAdd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnAdd = findViewById(R.id.btn_add);
         rvTask = findViewById(R.id.rv_recycle);
+
         adapter = new RecyclerAdapter(this);
         rvTask.setAdapter(adapter);
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -43,4 +48,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
 }

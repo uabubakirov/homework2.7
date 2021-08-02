@@ -18,8 +18,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     Context context;
     List<TaskModel> list = new ArrayList<>();
 
+
     public RecyclerAdapter(Context context){
         this.context = context;
+
     }
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -40,8 +42,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             public void onClick(View v) {
                 Intent intent = new Intent(context,SecondActivity.class);
                 intent.putExtra("title",list.get(position).getTitle());
-
-
+                intent.putExtra("description",list.get(position).getDesription());
+                context.startActivity(intent);
             }
         });
 
@@ -53,15 +55,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     }
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
-        TextView txtTitle,txtDescription;
+        TextView txtTitle, txtDescription;
+
         public RecyclerViewHolder(View itemView) {
             super(itemView);
             txtTitle = itemView.findViewById(R.id.txt_title);
             txtDescription = itemView.findViewById(R.id.txt_description);
 
+
         }
     }
-    public interface OnNoteListener{
-        void onNoteClick(int position);
-    }
+
 }
