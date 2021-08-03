@@ -21,6 +21,7 @@ public class SecondActivity extends AppCompatActivity {
         etTitle = findViewById(R.id.et_title);
         etDescription = findViewById(R.id.et_description);
         getIncomingIntent();
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,9 +46,21 @@ public class SecondActivity extends AppCompatActivity {
         }
     }
     public void setText(String title,String description){
-        TextView titleName = findViewById(R.id.txt_title);
+        EditText titleName = findViewById(R.id.et_title);
         titleName.setText(title);
-        TextView descriptionName = findViewById(R.id.txt_description);
+        EditText descriptionName = findViewById(R.id.et_description);
         descriptionName.setText(description);
+    }
+
+    public void newText() {
+        TextView title = findViewById(R.id.txt_title);
+        TextView description = findViewById(R.id.txt_description);
+        String mTitle, mDescription;
+        EditText etTitle = findViewById(R.id.et_title);
+        EditText etDescription = findViewById(R.id.et_description);
+        mTitle = etTitle.getText().toString();
+        mDescription = etDescription.getText().toString();
+        title.setText(mTitle);
+        description.setText(mDescription);
     }
 }
